@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-08-22T00:55:10.895029+00:00",
+  "timestamp": "2024-08-25T00:58:45.023609+00:00",
   "repo": "JonathanLennox/raw-key-fingerprints",
   "labels": [
     {
@@ -50,5 +50,34 @@
     }
   ],
   "issues": [],
-  "pulls": []
+  "pulls": [
+    {
+      "number": 1,
+      "id": "PR_kwDOMawPJc55OEhI",
+      "title": "Abstract",
+      "url": "https://github.com/JonathanLennox/raw-key-fingerprints/pull/1",
+      "state": "MERGED",
+      "author": "martinthomson",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "A shorter abstract; typo fix.",
+      "createdAt": "2024-08-23T08:44:33Z",
+      "updatedAt": "2024-08-23T16:46:13Z",
+      "baseRepository": "JonathanLennox/raw-key-fingerprints",
+      "baseRefName": "main",
+      "baseRefOid": "aeb62d12e011c7ee3580ffa3b05710f237a6ac2e",
+      "headRepository": "martinthomson/raw-key-fingerprints",
+      "headRefName": "patch-1",
+      "headRefOid": "0a5389f3a9bfcd0b50c8a612d5c41ce6da2b23b9",
+      "closedAt": "2024-08-23T16:46:13Z",
+      "mergedAt": "2024-08-23T16:46:13Z",
+      "mergedBy": "JonathanLennox",
+      "mergeCommit": {
+        "oid": "4981c441697805717f90bd437451f477bbba4d33"
+      },
+      "comments": [],
+      "reviews": []
+    }
+  ]
 }
