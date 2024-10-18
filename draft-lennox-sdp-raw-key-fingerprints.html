@@ -9,29 +9,30 @@
 <meta content="
        This document defines how to negotiate the use of raw keys for TLS and DTLS
 with the Session Description Protocol (SDP). Raw keys are more efficient
-than certificates for typical uses of SDP. 
+than certificates for typical uses of TLS and DTLS negotiated with
+SDP, without loss of security. 
     " name="description">
-<meta content="xml2rfc 3.22.0" name="generator">
+<meta content="xml2rfc 3.23.2" name="generator">
 <meta content="sdp" name="keyword">
 <meta content="fingerprints" name="keyword">
 <meta content="raw public keys" name="keyword">
-<meta content="draft-lennox-raw-key-fingerprints-latest" name="ietf.draft">
+<meta content="draft-lennox-sdp-raw-key-fingerprints-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.22.0
-    Python 3.12.3
+  xml2rfc 3.23.2
+    Python 3.12.7
     ConfigArgParse 1.7
-    google-i18n-address 3.1.0
+    google-i18n-address 3.1.1
     intervaltree 3.1.0
     Jinja2 3.1.4
     lxml 4.9.4
-    platformdirs 4.2.2
+    platformdirs 4.3.6
     pycountry 22.3.5
     PyYAML 6.0.1
     requests 2.32.3
     setuptools 70.3.0
     wcwidth 0.2.13
 -->
-<link href="draft-lennox-raw-key-fingerprints.xml" rel="alternate" type="application/rfc+xml">
+<link href="draft-lennox-sdp-raw-key-fingerprints.xml" rel="alternate" type="application/rfc+xml">
 <link href="#copyright" rel="license">
 <style type="text/css">@font-face {
   font-family: 'Lora';
@@ -1028,11 +1029,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">SDP Fingerprints for Raw Keys in (D)TLS</td>
-<td class="right">August 2024</td>
+<td class="right">October 2024</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Lennox</td>
-<td class="center">Expires 24 February 2025</td>
+<td class="center">Expires 21 April 2025</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1042,15 +1043,15 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dt class="label-workgroup">Workgroup:</dt>
 <dd class="workgroup">Network Working Group</dd>
 <dt class="label-internet-draft">Internet-Draft:</dt>
-<dd class="internet-draft">draft-lennox-raw-key-fingerprints-latest</dd>
+<dd class="internet-draft">draft-lennox-sdp-raw-key-fingerprints-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2024-08-23" class="published">23 August 2024</time>
+<time datetime="2024-10-18" class="published">18 October 2024</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2025-02-24">24 February 2025</time></dd>
+<dd class="expires"><time datetime="2025-04-21">21 April 2025</time></dd>
 <dt class="label-authors">Author:</dt>
 <dd class="authors">
 <div class="author">
@@ -1065,7 +1066,8 @@ svg :is([fill="white"], [fill^="#fff"]) {
       <h2 id="abstract"><a href="#abstract" class="selfRef">Abstract</a></h2>
 <p id="section-abstract-1">This document defines how to negotiate the use of raw keys for TLS and DTLS
 with the Session Description Protocol (SDP). Raw keys are more efficient
-than certificates for typical uses of SDP.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
+than certificates for typical uses of TLS and DTLS negotiated with
+SDP, without loss of security.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
 </section>
 <section class="note rfcEditorRemove" id="section-note.1">
       <h2 id="name-about-this-document">
@@ -1073,7 +1075,7 @@ than certificates for typical uses of SDP.<a href="#section-abstract-1" class="p
       </h2>
 <p id="section-note.1-1">This note is to be removed before publishing as an RFC.<a href="#section-note.1-1" class="pilcrow">¶</a></p>
 <p id="section-note.1-2">
-        Status information for this document may be found at <span><a href="https://datatracker.ietf.org/doc/draft-lennox-raw-key-fingerprints/">https://datatracker.ietf.org/doc/draft-lennox-raw-key-fingerprints/</a></span>.<a href="#section-note.1-2" class="pilcrow">¶</a></p>
+        Status information for this document may be found at <span><a href="https://datatracker.ietf.org/doc/draft-lennox-sdp-raw-key-fingerprints/">https://datatracker.ietf.org/doc/draft-lennox-sdp-raw-key-fingerprints/</a></span>.<a href="#section-note.1-2" class="pilcrow">¶</a></p>
 <p id="section-note.1-3">Source for this draft and an issue tracker can be found at
         <span><a href="https://github.com/JonathanLennox/raw-key-fingerprints">https://github.com/JonathanLennox/raw-key-fingerprints</a></span>.<a href="#section-note.1-3" class="pilcrow">¶</a></p>
 </section>
@@ -1096,7 +1098,7 @@ than certificates for typical uses of SDP.<a href="#section-abstract-1" class="p
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 24 February 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 21 April 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1127,6 +1129,11 @@ than certificates for typical uses of SDP.<a href="#section-abstract-1" class="p
 <nav class="toc"><ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1">
             <p id="section-toc.1-1.1.1" class="keepWithNext"><a href="#section-1" class="auto internal xref">1</a>.  <a href="#name-introduction" class="internal xref">Introduction</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1.2.1">
+                <p id="section-toc.1-1.1.2.1.1" class="keepWithNext"><a href="#section-1.1" class="auto internal xref">1.1</a>.  <a href="#name-certificate-overheads" class="internal xref">Certificate overheads</a></p>
+</li>
+            </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2">
             <p id="section-toc.1-1.2.1" class="keepWithNext"><a href="#section-2" class="auto internal xref">2</a>.  <a href="#name-conventions-and-definitions" class="internal xref">Conventions and Definitions</a></p>
@@ -1135,7 +1142,7 @@ than certificates for typical uses of SDP.<a href="#section-abstract-1" class="p
             <p id="section-toc.1-1.3.1"><a href="#section-3" class="auto internal xref">3</a>.  <a href="#name-protocol" class="internal xref">Protocol</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.1">
-                <p id="section-toc.1-1.3.2.1.1" class="keepWithNext"><a href="#section-3.1" class="auto internal xref">3.1</a>.  <a href="#name-the-raw-key-fingerprint-att" class="internal xref">The "raw-key-fingerprint" attribute.</a></p>
+                <p id="section-toc.1-1.3.2.1.1"><a href="#section-3.1" class="auto internal xref">3.1</a>.  <a href="#name-the-raw-key-fingerprint-att" class="internal xref">The "raw-key-fingerprint" attribute.</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2">
                 <p id="section-toc.1-1.3.2.2.1"><a href="#section-3.2" class="auto internal xref">3.2</a>.  <a href="#name-sdp-offer-answer-procedures" class="internal xref">SDP Offer/Answer procedures</a></p>
@@ -1151,10 +1158,10 @@ than certificates for typical uses of SDP.<a href="#section-abstract-1" class="p
             </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4">
-            <p id="section-toc.1-1.4.1"><a href="#section-4" class="auto internal xref">4</a>.  <a href="#name-design-choices" class="internal xref">Design choices</a></p>
+            <p id="section-toc.1-1.4.1"><a href="#section-4" class="auto internal xref">4</a>.  <a href="#name-possible-follow-ons" class="internal xref">Possible follow-ons</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5">
-            <p id="section-toc.1-1.5.1"><a href="#section-5" class="auto internal xref">5</a>.  <a href="#name-possible-follow-ons" class="internal xref">Possible follow-ons</a></p>
+            <p id="section-toc.1-1.5.1"><a href="#section-5" class="auto internal xref">5</a>.  <a href="#name-design-alternatives" class="internal xref">Design alternatives</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6">
             <p id="section-toc.1-1.6.1"><a href="#section-6" class="auto internal xref">6</a>.  <a href="#name-security-considerations" class="internal xref">Security Considerations</a></p>
@@ -1188,8 +1195,8 @@ than certificates for typical uses of SDP.<a href="#section-abstract-1" class="p
       <h2 id="name-introduction">
 <a href="#section-1" class="section-number selfRef">1. </a><a href="#name-introduction" class="section-name selfRef">Introduction</a>
       </h2>
-<p id="section-1-1">When a Transport-Layer Security <span>[<a href="#RFC8446" class="cite xref">RFC8446</a>]</span> <span>[<a href="#RFC5246" class="cite xref">RFC5246</a>]</span> or Datagram
-Transport-Layer Security <span>[<a href="#RFC9147" class="cite xref">RFC9147</a>]</span> <span>[<a href="#RFC6347" class="cite xref">RFC6347</a>]</span>
+<p id="section-1-1">When a Transport-Layer Security (TLS) <span>[<a href="#RFC8446" class="cite xref">RFC8446</a>]</span> <span>[<a href="#RFC5246" class="cite xref">RFC5246</a>]</span> or Datagram
+Transport-Layer Security (DTLS) <span>[<a href="#RFC9147" class="cite xref">RFC9147</a>]</span> <span>[<a href="#RFC6347" class="cite xref">RFC6347</a>]</span>
 connection is negotiated using the Session Description Protocol <span>[<a href="#RFC8866" class="cite xref">RFC8866</a>]</span>,
 certificates are validated using certificate fingerprints specified in
 the SDP <span>[<a href="#RFC8122" class="cite xref">RFC8122</a>]</span>, rather than by any information carried in the certificate.
@@ -1199,16 +1206,27 @@ process are the public keys; the rest of the information is useless.
 This other information can be large, and once post-quantum
 public keys are needed, the self-signed signature in particular will
 be very large.<a href="#section-1-1" class="pilcrow">¶</a></p>
-<p id="section-1-2">Transport-Layer Security (and Datagram Transport-Layer Security) now
+<p id="section-1-2">TLS and DTLS now
 support using raw keys, rather than X.509 certificates, in
 circumstances such as these <span>[<a href="#RFC7250" class="cite xref">RFC7250</a>]</span>.  This document defines how such raw key
 certificates can be negotiated in SDP.<a href="#section-1-2" class="pilcrow">¶</a></p>
+<div id="certificate-overheads">
+<section id="section-1.1">
+        <h3 id="name-certificate-overheads">
+<a href="#section-1.1" class="section-number selfRef">1.1. </a><a href="#name-certificate-overheads" class="section-name selfRef">Certificate overheads</a>
+        </h3>
+<p id="section-1.1-1">As an illustration of the overheads of self-signed certificates, the
+self-signed certificate in a WebRTC DTLS handshake negotiated by a
+recent version of Chrome is 282 bytes, of which only 91 bytes are the
+public key (the subjectPublicKeyInfo in id-ecPublicKey format
+<span>[<a href="#RFC5480" class="cite xref">RFC5480</a>]</span>).<a href="#section-1.1-1" class="pilcrow">¶</a></p>
 <ul class="normal ulEmpty">
-<li class="normal ulEmpty" id="section-1-3.1">
-          <p id="section-1-3.1.1">TODO: give figures on how much larger certs are than raw keys, both
-for current EC-based ones and for PQ.<a href="#section-1-3.1.1" class="pilcrow">¶</a></p>
+<li class="normal ulEmpty" id="section-1.1-2.1">
+            <p id="section-1.1-2.1.1">TODO: calculate equivalent figures for a PQ X.509 certificate<a href="#section-1.1-2.1.1" class="pilcrow">¶</a></p>
 </li>
-      </ul>
+        </ul>
+</section>
+</div>
 </section>
 </div>
 <div id="conventions-and-definitions">
@@ -1282,7 +1300,7 @@ includes an SDP "raw-key-fingerprint" attribute describing its raw
 public key at the session level or the appropriate media levels.  In
 an initial offer, it <span class="bcp14">SHOULD</span> also include a valid SDP "fingerprint"
 attribute for a self-signed X.509 certificate as defined in
-<span>[<a href="#RFC8122" class="cite xref">RFC8122</a>]</span>, unless it knows for certain through out-of-bound means
+<span>[<a href="#RFC8122" class="cite xref">RFC8122</a>]</span>, unless it knows for certain through out-of-band means
 that the peer that will be performing the answer definitely supports
 raw keys.<a href="#section-3.2-1" class="pilcrow">¶</a></p>
 <p id="section-3.2-2">In its answer, the answerer then includes a "raw-key-fingerprint" with
@@ -1374,55 +1392,48 @@ connection matches the raw key fingerprint in the SDP.<a href="#section-3.3-2" c
 </div>
 </section>
 </div>
-<div id="design-choices">
-<section id="section-4">
-      <h2 id="name-design-choices">
-<a href="#section-4" class="section-number selfRef">4. </a><a href="#name-design-choices" class="section-name selfRef">Design choices</a>
-      </h2>
-<p id="section-4-1">In theory, raw key fingerprints could have been specified as another
-value for the "a=fingerprint:" SDP attribute, rather than defining the
-new SDP attribute "a=raw-key-fingerprint:".  <span>[<a href="#RFC8122" class="cite xref">RFC8122</a>]</span> defines how
-multiple such attributes of that type are to be processed, and if
-implementations followed those recommendations, backward compatibility
-with implementations not implementing this specification would work
-correctly.<a href="#section-4-1" class="pilcrow">¶</a></p>
-<p id="section-4-2">However, as <span>[<a href="#RFC8122" class="cite xref">RFC8122</a>]</span>'s predecessor <span>[<a href="#RFC4572" class="cite xref">RFC4572</a>]</span> did not specify
-processes for handling multiple fingerprint attributes, and as
-multiple fingerprint attributes are not commonly used, the designers
-of this specification felt that it was uncertain whether all
-implementations would correctly handle multiple fingerprint
-attributes.  Thus, a new attribute was defined, which would be ignored
-by existing implementations under the normal SDP rules to ignore
-unknown attributes.<a href="#section-4-2" class="pilcrow">¶</a></p>
-<p id="section-4-3">This also allows an SDP answerer to include only the
-"raw-key-fingerprint" attribute, omitting the "fingerprint" attribute, in
-its answer if it has seen one in an offer, even if it has not yet seen
-a TLS or DTLS ClientHello containing a CertTypeExtension.  (In the common case
-where DTLS is run over ICE <span>[<a href="#RFC8445" class="cite xref">RFC8445</a>]</span>, as in WebRTC <span>[<a href="#RFC8835" class="cite xref">RFC8835</a>]</span>, a
-ClientHello architecturally cannot arrive before the SDP answer is
-sent, because the peer does not know the address to send it to.)<a href="#section-4-3" class="pilcrow">¶</a></p>
-</section>
-</div>
 <div id="follow-ons">
-<section id="section-5">
+<section id="section-4">
       <h2 id="name-possible-follow-ons">
-<a href="#section-5" class="section-number selfRef">5. </a><a href="#name-possible-follow-ons" class="section-name selfRef">Possible follow-ons</a>
+<a href="#section-4" class="section-number selfRef">4. </a><a href="#name-possible-follow-ons" class="section-name selfRef">Possible follow-ons</a>
       </h2>
-<p id="section-5-1">Two protocols have defined mechanisms by which SDP fingerprints can be
+<p id="section-4-1">Two protocols have defined mechanisms by which SDP fingerprints can be
 signed to ensure their end-to-end security: PASSPorT <span>[<a href="#RFC8225" class="cite xref">RFC8225</a>]</span> and
 WebRTC Identity Providers <span>[<a href="#RFC8827" class="cite xref">RFC8827</a>]</span>.  Unfortunately, the latter has
 seen no deployment as far as the author is aware; and the former,
 while widely implemented to authenticate calling party telephone
 numbers, has not seen much if any adoption of the mode that signs
-certificate fingerprints.<a href="#section-5-1" class="pilcrow">¶</a></p>
-<p id="section-5-2">Nonetheless, both of these mechanisms could easily be extended so as
-to secure raw key fingerprints as well.<a href="#section-5-2" class="pilcrow">¶</a></p>
+certificate fingerprints.<a href="#section-4-1" class="pilcrow">¶</a></p>
+<p id="section-4-2">Nonetheless, both of these mechanisms could easily be extended so as
+to secure raw key fingerprints as well.<a href="#section-4-2" class="pilcrow">¶</a></p>
 <ul class="normal ulEmpty">
-<li class="normal ulEmpty" id="section-5-3.1">
-          <p id="section-5-3.1.1">TODO: Should we actually define these extensions?  Is it worth the
-trouble?<a href="#section-5-3.1.1" class="pilcrow">¶</a></p>
+<li class="normal ulEmpty" id="section-4-3.1">
+          <p id="section-4-3.1.1">TODO: Should we actually define these extensions?  Is it worth the
+trouble?<a href="#section-4-3.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
+</section>
+</div>
+<div id="design-alternatives">
+<section id="section-5">
+      <h2 id="name-design-alternatives">
+<a href="#section-5" class="section-number selfRef">5. </a><a href="#name-design-alternatives" class="section-name selfRef">Design alternatives</a>
+      </h2>
+<p id="section-5-1">As an alternative to a new "a=raw-key-fingerprint" attribute, an
+alternative signaling mechanism would be to define new values for the
+"hash-func" field of the existing "a=fingerprint" attribute, e.g. the
+"hash-func" value "raw-key-SHA-256" in an "a=fingerprint" attribute
+would mean to use the mechanisms defined in this document.<a href="#section-5-1" class="pilcrow">¶</a></p>
+<p id="section-5-2">This would have the advantage of allowing existing mechanisms that use
+and transport "a=fingerprint" values (both existing code, and
+mechanisms such as those discussed in <a href="#follow-ons" class="auto internal xref">Section 4</a>) to support the
+raw key mechanism, without requiring new code to be written or new
+extension points to be defined.<a href="#section-5-2" class="pilcrow">¶</a></p>
+<p id="section-5-3">This would be at the cost of somewhat less clean signaling; and in
+particular, the definition of the "Hash function textual names"
+IANA registry would get complicated.<a href="#section-5-3" class="pilcrow">¶</a></p>
+<p id="section-5-4">This would require discussion during the consensus process as this
+mechanism is standardized.<a href="#section-5-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="security-considerations">
@@ -1439,7 +1450,7 @@ certificates, this mechanism should have identical security properties
 to that of <span>[<a href="#RFC8122" class="cite xref">RFC8122</a>]</span>.<a href="#section-6-1" class="pilcrow">¶</a></p>
 <p id="section-6-2">As with <span>[<a href="#RFC8122" class="cite xref">RFC8122</a>]</span> fingerprints, the mechanism in this document is
 vulnerable to an attacker who can modify the signaled fingerprints and
-launch a meddler-in-the-middle attack.  See <a href="#follow-ons" class="auto internal xref">Section 5</a> for various
+launch a meddler-in-the-middle attack.  See <a href="#follow-ons" class="auto internal xref">Section 4</a> for various
 proposed methods to prevent this attack.<a href="#section-6-2" class="pilcrow">¶</a></p>
 </section>
 </div>
@@ -1519,9 +1530,9 @@ proposed methods to prevent this attack.<a href="#section-6-2" class="pilcrow">�
 <a href="#section-8.2" class="section-number selfRef">8.2. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
         </h3>
 <dl class="references">
-<dt id="RFC4572">[RFC4572]</dt>
+<dt id="RFC5480">[RFC5480]</dt>
         <dd>
-<span class="refAuthor">Lennox, J.</span>, <span class="refTitle">"Connection-Oriented Media Transport over the Transport Layer Security (TLS) Protocol in the Session Description Protocol (SDP)"</span>, <span class="seriesInfo">RFC 4572</span>, <span class="seriesInfo">DOI 10.17487/RFC4572</span>, <time datetime="2006-07" class="refDate">July 2006</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc4572">https://www.rfc-editor.org/rfc/rfc4572</a>&gt;</span>. </dd>
+<span class="refAuthor">Turner, S.</span>, <span class="refAuthor">Brown, D.</span>, <span class="refAuthor">Yiu, K.</span>, <span class="refAuthor">Housley, R.</span>, and <span class="refAuthor">T. Polk</span>, <span class="refTitle">"Elliptic Curve Cryptography Subject Public Key Information"</span>, <span class="seriesInfo">RFC 5480</span>, <span class="seriesInfo">DOI 10.17487/RFC5480</span>, <time datetime="2009-03" class="refDate">March 2009</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc5480">https://www.rfc-editor.org/rfc/rfc5480</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC7826">[RFC7826]</dt>
         <dd>
@@ -1531,17 +1542,9 @@ proposed methods to prevent this attack.<a href="#section-6-2" class="pilcrow">�
         <dd>
 <span class="refAuthor">Wendt, C.</span> and <span class="refAuthor">J. Peterson</span>, <span class="refTitle">"PASSporT: Personal Assertion Token"</span>, <span class="seriesInfo">RFC 8225</span>, <span class="seriesInfo">DOI 10.17487/RFC8225</span>, <time datetime="2018-02" class="refDate">February 2018</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8225">https://www.rfc-editor.org/rfc/rfc8225</a>&gt;</span>. </dd>
 <dd class="break"></dd>
-<dt id="RFC8445">[RFC8445]</dt>
-        <dd>
-<span class="refAuthor">Keranen, A.</span>, <span class="refAuthor">Holmberg, C.</span>, and <span class="refAuthor">J. Rosenberg</span>, <span class="refTitle">"Interactive Connectivity Establishment (ICE): A Protocol for Network Address Translator (NAT) Traversal"</span>, <span class="seriesInfo">RFC 8445</span>, <span class="seriesInfo">DOI 10.17487/RFC8445</span>, <time datetime="2018-07" class="refDate">July 2018</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8445">https://www.rfc-editor.org/rfc/rfc8445</a>&gt;</span>. </dd>
-<dd class="break"></dd>
 <dt id="RFC8827">[RFC8827]</dt>
-        <dd>
-<span class="refAuthor">Rescorla, E.</span>, <span class="refTitle">"WebRTC Security Architecture"</span>, <span class="seriesInfo">RFC 8827</span>, <span class="seriesInfo">DOI 10.17487/RFC8827</span>, <time datetime="2021-01" class="refDate">January 2021</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8827">https://www.rfc-editor.org/rfc/rfc8827</a>&gt;</span>. </dd>
-<dd class="break"></dd>
-<dt id="RFC8835">[RFC8835]</dt>
       <dd>
-<span class="refAuthor">Alvestrand, H.</span>, <span class="refTitle">"Transports for WebRTC"</span>, <span class="seriesInfo">RFC 8835</span>, <span class="seriesInfo">DOI 10.17487/RFC8835</span>, <time datetime="2021-01" class="refDate">January 2021</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8835">https://www.rfc-editor.org/rfc/rfc8835</a>&gt;</span>. </dd>
+<span class="refAuthor">Rescorla, E.</span>, <span class="refTitle">"WebRTC Security Architecture"</span>, <span class="seriesInfo">RFC 8827</span>, <span class="seriesInfo">DOI 10.17487/RFC8827</span>, <time datetime="2021-01" class="refDate">January 2021</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8827">https://www.rfc-editor.org/rfc/rfc8827</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 </dl>
 </section>
