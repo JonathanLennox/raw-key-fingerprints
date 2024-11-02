@@ -4,8 +4,8 @@
 
 Network Working Group                                          J. Lennox
 Internet-Draft                                          8x8, Inc / Jitsi
-Intended status: Standards Track                         18 October 2024
-Expires: 21 April 2025
+Intended status: Standards Track                         2 November 2024
+Expires: 6 May 2025
 
 
     Session Description Protocol Fingerprints for Raw Public Keys in
@@ -45,7 +45,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 21 April 2025.
+   This Internet-Draft will expire on 6 May 2025.
 
 Copyright Notice
 
@@ -107,7 +107,12 @@ Table of Contents
    public key (the subjectPublicKeyInfo in id-ecPublicKey format
    [RFC5480]).
 
-      TODO: calculate equivalent figures for a PQ X.509 certificate
+   For the transition to post-quantum keys and signatures, the overhead
+   is significantly worse.  For ML-DSA level 3 certificate, described in
+   Appendix B of [I-D.ietf-lamps-dilithium-certificates], public keys
+   are 1952 bytes, and signatures are 3293 bytes.  Only the public key
+   is useful -- the signature (along with any other certificate
+   overhead) is wasted space.
 
 2.  Conventions and Definitions
 
@@ -366,6 +371,14 @@ Table of Contents
 
 8.2.  Informative References
 
+   [I-D.ietf-lamps-dilithium-certificates]
+              Massimo, J., Kampanakis, P., Turner, S., and B.
+              Westerbaan, "Internet X.509 Public Key Infrastructure:
+              Algorithm Identifiers for ML-DSA", Work in Progress,
+              Internet-Draft, draft-ietf-lamps-dilithium-certificates-
+              04, 22 July 2024, <https://datatracker.ietf.org/doc/html/
+              draft-ietf-lamps-dilithium-certificates-04>.
+
    [RFC5480]  Turner, S., Brown, D., Yiu, K., Housley, R., and T. Polk,
               "Elliptic Curve Cryptography Subject Public Key
               Information", RFC 5480, DOI 10.17487/RFC5480, March 2009,
@@ -386,8 +399,8 @@ Table of Contents
 
 Acknowledgments
 
-   Thanks to Martin Thomson and Harald Alvestrand for their comments on
-   this document.
+   Thanks to Martin Thomson, Harald Alvestrand, and Mike Ounsworth for
+   their comments on this document.
 
 Author's Address
 
