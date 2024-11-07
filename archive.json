@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-11-05T00:59:07.137638+00:00",
+  "timestamp": "2024-11-07T00:59:18.760269+00:00",
   "repo": "JonathanLennox/raw-key-fingerprints",
   "labels": [
     {
@@ -49,7 +49,56 @@
       "color": "ffffff"
     }
   ],
-  "issues": [],
+  "issues": [
+    {
+      "number": 2,
+      "id": "I_kwDOMawPJc6dRKWA",
+      "title": "Is new SDP actually necessary?",
+      "url": "https://github.com/JonathanLennox/raw-key-fingerprints/issues/2",
+      "state": "OPEN",
+      "author": "steely-glint",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "I haven't looked at this in depth, but I think that all the info you need to decide how to handle \r\na=fingerprint {cert/raw}\r\nis already in the DTLS hello(s).\r\n\r\nWe still need to establish what those rules are, but I don't think we need new SDP.",
+      "createdAt": "2024-11-06T15:57:50Z",
+      "updatedAt": "2024-11-06T15:57:50Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 3,
+      "id": "I_kwDOMawPJc6dRQ4o",
+      "title": "Add 'expires' to the security discussion.",
+      "url": "https://github.com/JonathanLennox/raw-key-fingerprints/issues/3",
+      "state": "OPEN",
+      "author": "steely-glint",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "The only other property that webRTC exposes from the RTCCertificate object is 'expires' .\r\nThis can usefully be combined with PeerConnection.generateCertificate() to create a medium term pairing/trust relationship.\r\n\r\nThe security discussion should cover this.",
+      "createdAt": "2024-11-06T16:06:24Z",
+      "updatedAt": "2024-11-06T16:06:24Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 4,
+      "id": "I_kwDOMawPJc6dRfB8",
+      "title": "Possible follow on should cover webRTC usage of stored certificates",
+      "url": "https://github.com/JonathanLennox/raw-key-fingerprints/issues/4",
+      "state": "OPEN",
+      "author": "steely-glint",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "Whilst no webRTC identity providers exist there are folks (pi.pe for example)  who are using the ability to generate a certificate with a defined expiry date, store it and then re-use it multiple times as a sort of poor-man's (TOFU) identity assertion. Whilst might be seen as W3C territory this draft casually nixes several webRTC api points, the least it can do is to admit it ;-) ",
+      "createdAt": "2024-11-06T16:25:51Z",
+      "updatedAt": "2024-11-06T16:25:51Z",
+      "closedAt": null,
+      "comments": []
+    }
+  ],
   "pulls": [
     {
       "number": 1,
