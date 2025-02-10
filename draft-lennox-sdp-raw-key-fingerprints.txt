@@ -4,8 +4,8 @@
 
 Network Working Group                                          J. Lennox
 Internet-Draft                                          8x8, Inc / Jitsi
-Intended status: Standards Track                         2 November 2024
-Expires: 6 May 2025
+Intended status: Standards Track                        10 February 2025
+Expires: 14 August 2025
 
 
     Session Description Protocol Fingerprints for Raw Public Keys in
@@ -45,11 +45,11 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 6 May 2025.
+   This Internet-Draft will expire on 14 August 2025.
 
 Copyright Notice
 
-   Copyright (c) 2024 IETF Trust and the persons identified as the
+   Copyright (c) 2025 IETF Trust and the persons identified as the
    document authors.  All rights reserved.
 
    This document is subject to BCP 78 and the IETF Trust's Legal
@@ -376,8 +376,9 @@ Table of Contents
               Westerbaan, "Internet X.509 Public Key Infrastructure:
               Algorithm Identifiers for ML-DSA", Work in Progress,
               Internet-Draft, draft-ietf-lamps-dilithium-certificates-
-              04, 22 July 2024, <https://datatracker.ietf.org/doc/html/
-              draft-ietf-lamps-dilithium-certificates-04>.
+              07, 2 February 2025,
+              <https://datatracker.ietf.org/doc/html/draft-ietf-lamps-
+              dilithium-certificates-07>.
 
    [RFC5480]  Turner, S., Brown, D., Yiu, K., Housley, R., and T. Polk,
               "Elliptic Curve Cryptography Subject Public Key
